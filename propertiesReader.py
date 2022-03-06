@@ -1,33 +1,23 @@
 #!usr/bin/python3
 
-# Filename: m2p2.py
-# Author: Mandeep Parihar
-# Course: ITSC-203
-# Description: Displays file information for every file in the user specified directory path 
-# Resources: https://docs.python.org/3/library/os.html
-			 #https://docs.python.org/3/library/time.html
-				
-
 import os
 import time 
 
-# Personal testing path:
-	# /home/mparihar/ITSC203/a2/
 userPath = input("Enter an absolute directory path: ")
 
 with os.scandir(userPath) as dirContent:
 	for entry in dirContent:
-		# File ame 
+		# Filename 
 		fileName = os.path.basename(entry)
 		print("\tFile Name:\t", fileName)
 		
-		# File path 
+		# Filepath 
 		print("\tFile Path:\t", userPath)
 		
 		# File size 
 		fileSize = fileSize = os.path.getsize(entry)
-		#Get size in KB:
-			#{:.2f} kilobytes".format(fileSize / 1024)
+		# Get size in KB:
+			# {:.2f} kilobytes".format(fileSize / 1024)
 		modifiedFS = str(fileSize) + " bytes"
 		print("\tFile Size:\t", modifiedFS)
 		
